@@ -55,7 +55,7 @@ $("#link__sucursales").on("click", (e) => {
   e.preventDefault();
   $("html, body").animate(
     {
-      scrollTop: sucursales + 150,
+      scrollTop: sucursales,
     },
     100
   );
