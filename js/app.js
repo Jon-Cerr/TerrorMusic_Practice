@@ -45,7 +45,7 @@ $("#link__productos").on("click", (e) => {
   e.preventDefault();
   $("html, body").animate(
     {
-      scrollTop: productos - 80,
+      scrollTop: productos - 50,
     },
     100
   );
@@ -70,3 +70,10 @@ $("#link__about").on("click", (e) => {
     100
   );
 });
+
+window.sr = ScrollReveal();
+  sr.reveal('.guitars', {
+    duration: 3000,
+    origin: 'bottom',
+    distance: '-100px'
+  });
