@@ -117,7 +117,7 @@ p {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  margin: 150px auto 0 auto;
+  margin: 90px auto 0 auto;
   height: auto;
   z-index: 0;
 }
@@ -244,7 +244,7 @@ footer span {
 
 @media (max-width: 700px) {
   header {
-    min-width: 600px;
+    min-width: 700px;
   }
   .nav {
     display: flex;

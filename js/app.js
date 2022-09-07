@@ -45,7 +45,7 @@ $("#link__productos").on("click", (e) => {
   e.preventDefault();
   $("html, body").animate(
     {
-      scrollTop: productos - 200,
+      scrollTop: productos - 100,
     },
     100
   );
