@@ -1,13 +1,8 @@
-const nav = document.querySelector(".nav");
 const menu = document.getElementById("enlaces");
 const menu_btn = document.getElementById("open");
 const buttons = document.querySelectorAll("btn-header");
 let closed = true;
-const menuLinks = document.querySelectorAll('#enlaces a[href^="#"]');
-
-window.addEventListener("scroll", function () {
-  nav.classList.toggle("active", window.scrollY > 0);
-});
+const menuLinks = document.querySelectorAll('.enlaces a[href^="#"]');
 
 new TypeIt("#terror__span__typeit", {
   speed: 50,
@@ -31,7 +26,7 @@ window.addEventListener("resize", () => {
     about = $("#about").offset().top;
 });
 
-$("#link__inicio").on("click", (e) => {
+$("#enlace-inicio").on("click", (e) => {
   e.preventDefault();
   $("html, body").animate(
     {
@@ -41,39 +36,95 @@ $("#link__inicio").on("click", (e) => {
   );
 });
 
-$("#link__productos").on("click", (e) => {
+$("#enlace-pop").on("click", (e) => {
   e.preventDefault();
   $("html, body").animate(
     {
-      scrollTop: productos - 100,
+      scrollTop: productos - 150,
     },
     100
   );
 });
 
-$("#link__sucursales").on("click", (e) => {
+$("#enlace-sucu").on("click", (e) => {
   e.preventDefault();
   $("html, body").animate(
     {
-      scrollTop: sucursales,
+      scrollTop: sucursales - 150,
     },
     100
   );
 });
 
-$("#link__about").on("click", (e) => {
+$("#enlace-contacto").on("click", (e) => {
   e.preventDefault();
   $("html, body").animate(
     {
-      scrollTop: about,
+      scrollTop: about - 150 ,
     },
     100
   );
 });
 
 window.sr = ScrollReveal();
-  sr.reveal('.guitars', {
-    duration: 3000,
-    origin: 'bottom',
-    distance: '-100px'
+sr.reveal(".guitars", {
+  duration: 3000,
+  origin: "bottom",
+  distance: "-100px",
+});
+
+sr.reveal(".sucursales", {
+  duration: 3000,
+  origin: "left",
+  distance: "-500px",
+});
+
+function menus() {
+  let Desplz_actual = window.pageYOffset;
+  if (Desplz_actual <= 50) {
+    nav.classList.remove("nav2");
+    nav.className = "nav1";
+    menu.style.top = "80px";
+  } else {
+    nav.classList.remove("nav1");
+    nav.className = "nav2";
+    menu.style.top = "100px";
+  }
+}
+
+window.addEventListener("scroll", () => {
+  menus();
+});
+
+window.addEventListener("resize", () => {
+  if (screen.width >= 700) {
+    closed = true;
+    menu.style.removeProperty("overflow");
+    menu.style.removeProperty("width");
+  }
+});
+
+// Permite mostrar/cerrar el menu en dispositivos moviles o tablets
+menu_btn.addEventListener("click", () => {
+  if (closed) {
+    menu.style.width = "100vw";
+    closed = false;
+  } else {
+    menu.style.width = "0%";
+    menu.style.overflow = "hidden";
+    closed = true;
+  }
+});
+
+// Permite hacer que el menu se cierre cuando se hace click en un enlace (devices)
+menuLinks.forEach((menuLink) => {
+  menuLink.addEventListener("click", () => {
+    if (screen.width <= 700) {
+      if (!closed) {
+        menu.style.width = "0%";
+        menu.style.overflow = "hidden";
+        closed = true;
+      }
+    }
   });
+});
