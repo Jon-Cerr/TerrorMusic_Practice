@@ -1,0 +1,274 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+header {
+  width: 100%;
+  background: #000;
+  min-height: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7)),
+    url(../assets/shop_g.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+header > h1 {
+  text-align: center;
+  color: #fff;
+  letter-spacing: 0.5rem;
+  font-size: 4rem;
+}
+
+header span {
+  color: #fff;
+  margin-top: 15px;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+
+.nav {
+  position: fixed;
+  width: 100%;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  transition: all 0.5s ease;
+  justify-content: space-around;
+  padding: 0.5rem 0;
+  top: 0;
+}
+
+.nav.active {
+  background-color: #fff;
+  padding: 0.5rem;
+  z-index: 1;
+}
+
+.nav.active .logo,
+.nav.active a {
+  color: #000;
+}
+
+.nav.active a:hover {
+  color: #000;
+}
+
+.icon {
+  display: none;
+  font-size: 24px;
+  padding: 23.5px 20px;
+}
+
+.logo {
+  font-size: 1rem;
+  color: #ffffff;
+  font-weight: 400;
+}
+
+.menu {
+  display: flex;
+}
+
+.menu li {
+  list-style: none;
+  margin: 0.5rem 1rem;
+}
+
+.menu li a {
+  display: inline-block;
+  padding: 15px;
+  line-height: normal;
+  text-decoration: none;
+  color: #fff;
+  transition: all 0.3s ease;
+  border-bottom: 2px solid transparent;
+  font-size: 1em;
+}
+
+.menu li a:hover {
+  border-bottom: 2px solid #c7c7c7;
+  padding-bottom: 5px;
+}
+
+.nav.active .menu li a:hover {
+  border-bottom: 2px solid #000;
+  padding-bottom: 5px;
+}
+
+p {
+  color: #000;
+  font-size: 1.2rem;
+}
+
+.products-content {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 150px auto 0 auto;
+  height: auto;
+  z-index: 0;
+}
+
+.products-content > h1 {
+  border-bottom: 2px solid #000;
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+}
+
+.products-content .guitars {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 20px 20px;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.products-content .guitars .guitar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 25px 0;
+  z-index: 0;
+}
+
+.guitars .guitar > h2 {
+  font-size: 1.5rem;
+  z-index: 0;
+}
+
+.products-content .guitars img {
+  max-width: 350px;
+  margin: 20px 0;
+  z-index: 0;
+}
+
+.products-content .guitars span {
+  font-size: 1.2rem;
+  margin: 5px 0;
+  z-index: 0;
+}
+
+.sucursales {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 450px;
+  width: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7)),
+    url(../assets/pexels-stephen-niemeier-68710.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.sucursal__info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 350px;
+  height: 350px;
+  background: #fff;
+  margin-left: 5%;
+}
+
+.sucursal__info > h1 {
+  color: #000;
+  text-align: left;
+  text-transform: uppercase;
+  font-size: 2rem;
+  margin: 60px 40px 0 40px;
+  line-height: 3rem;
+  letter-spacing: 0.2rem;
+}
+
+.sucursal__info span {
+  margin: 20px 40px;
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  letter-spacing: 0.2rem;
+}
+
+footer {
+  width: 100%;
+  min-height: 300px;
+  background: #000;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.footer__logo {
+  max-width: 100px;
+  margin: 40px 0;
+}
+
+.extras {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  gap: 2.5rem;
+}
+
+footer span {
+  margin: 10px 0;
+}
+
+.media__icons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  margin: 50px 0;
+}
+
+@media (max-width: 700px) {
+  header {
+    min-width: 600px;
+  }
+  .nav {
+    display: flex;
+    flex-direction: column;
+  }
+  .menu {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .products-content {
+    min-width: 600px;
+    flex-direction: column;
+  }
+
+  .sucursales {
+    min-width: 600px;
+  }
+
+  footer {
+    min-width: 600px;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+}
