@@ -70,11 +70,3 @@ $("#link__about").on("click", (e) => {
     100
   );
 });
-
-window.addEventListener("resize", () => {
-  if (screen.width >= 700) {
-    closed = true;
-    menu.style.removeProperty("overflow");
-    menu.style.removeProperty("width");
-  }
-});
