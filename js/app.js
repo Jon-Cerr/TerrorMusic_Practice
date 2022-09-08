@@ -1,9 +1,3 @@
-const menu = document.getElementById("enlaces");
-const menu_btn = document.getElementById("open");
-const buttons = document.querySelectorAll("btn-header");
-let closed = true;
-const menuLinks = document.querySelectorAll('.enlaces a[href^="#"]');
-
 new TypeIt("#terror__span__typeit", {
   speed: 50,
   startDelay: 900,
@@ -16,54 +10,43 @@ new TypeIt("#terror__span__typeit", {
   )
   .go();
 
-let productos = $("#productos").offset().top,
-  sucursales = $("#sucursales").offset().top,
-  about = $("#about").offset().top;
+const menu = document.querySelector(".menu");
+const openMenuBtn = document.querySelector(".open-menu");
+const closeMenuBtn = document.querySelector(".close-menu");
 
-window.addEventListener("resize", () => {
-  let productos = $("#productos").offset().top,
-    sucursales = $("#sucursales").offset().top,
-    about = $("#about").offset().top;
-});
+function toggleMenu() {
+  menu.classList.toggle("menu_opened");
+}
 
-$("#enlace-inicio").on("click", (e) => {
-  e.preventDefault();
-  $("html, body").animate(
-    {
-      scrollTop: 0,
-    },
-    100
-  );
-});
+openMenuBtn.addEventListener("click", toggleMenu);
+closeMenuBtn.addEventListener("click", toggleMenu);
 
-$("#enlace-pop").on("click", (e) => {
-  e.preventDefault();
-  $("html, body").animate(
-    {
-      scrollTop: productos - 150,
-    },
-    100
-  );
-});
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach(entry => {
+      const id = entry.target.getAttribute("id");
+      const menuLink = document.querySelector(`.menu a[href="#${id}"]`);
 
-$("#enlace-sucu").on("click", (e) => {
-  e.preventDefault();
-  $("html, body").animate(
-    {
-      scrollTop: sucursales - 150,
-    },
-    100
-  );
-});
+      if (entry.isIntersecting) {
+        document.querySelector(".menu a.selected").classList.remove("selected");
+        menuLink.classList.add("selected");
+      }
+    });
+  },
+  { rootMargin: "-70% 0px -30% 0px" }
+);
 
-$("#enlace-contacto").on("click", (e) => {
-  e.preventDefault();
-  $("html, body").animate(
-    {
-      scrollTop: about - 150 ,
-    },
-    100
-  );
+const menuLinks = document.querySelectorAll(`.menu a[href^="#"]`);
+menuLinks.forEach((menuLink) => {
+  menuLink.addEventListener("click", () => {
+    menu.classList.remove("menu_opened");
+  });
+
+  const hash = menuLink.getAttribute("href");
+  const target = document.querySelector(hash);
+  if (target) {
+    observer.observe(target);
+  }
 });
 
 window.sr = ScrollReveal();
@@ -77,54 +60,4 @@ sr.reveal(".sucursales", {
   duration: 3000,
   origin: "left",
   distance: "-500px",
-});
-
-function menus() {
-  let Desplz_actual = window.pageYOffset;
-  if (Desplz_actual <= 50) {
-    nav.classList.remove("nav2");
-    nav.className = "nav1";
-    menu.style.top = "80px";
-  } else {
-    nav.classList.remove("nav1");
-    nav.className = "nav2";
-    menu.style.top = "100px";
-  }
-}
-
-window.addEventListener("scroll", () => {
-  menus();
-});
-
-window.addEventListener("resize", () => {
-  if (screen.width >= 700) {
-    closed = true;
-    menu.style.removeProperty("overflow");
-    menu.style.removeProperty("width");
-  }
-});
-
-// Permite mostrar/cerrar el menu en dispositivos moviles o tablets
-menu_btn.addEventListener("click", () => {
-  if (closed) {
-    menu.style.width = "100vw";
-    closed = false;
-  } else {
-    menu.style.width = "0%";
-    menu.style.overflow = "hidden";
-    closed = true;
-  }
-});
-
-// Permite hacer que el menu se cierre cuando se hace click en un enlace (devices)
-menuLinks.forEach((menuLink) => {
-  menuLink.addEventListener("click", () => {
-    if (screen.width <= 700) {
-      if (!closed) {
-        menu.style.width = "0%";
-        menu.style.overflow = "hidden";
-        closed = true;
-      }
-    }
-  });
 });

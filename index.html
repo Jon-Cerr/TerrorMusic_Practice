@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Terror Music</title>
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/navbar.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
@@ -22,22 +23,28 @@
     ></script>
   </head>
   <body>
-    <header>
-      <nav id="nav" class="nav1">
-        <div class="nav-container">
-          <div class="logo">
-            <img src="assets/Terror_Music.png" alt="logo" class="logo" />
-          </div>
-          <div class="enlaces" id="enlaces">
-            <a href="#" class="btn-header" id="enlace-inicio">Inicio</a>
-            <a href="#" class="btn-header" id="enlace-pop">Populares</a>
-            <a href="#" class="btn-header" id="enlace-sucu">Sucursales</a>
-            <a href="#" class="btn-header" id="enlace-contacto">Contacto</a>
-          </div>
-          <div class="icon" id="open">
-            <i class="fa-solid fa-bars"></i>
-          </div>
-        </div>
+    <header id="principal">
+      <nav class="topnav">
+        <a href="#" class="logo">
+          <img
+            height="50"
+            width="45"
+            src="assets/Terror_Music.png"
+            alt="programador"
+          />
+        </a>
+        <button class="open-menu" aria-label="Abrir menú">
+          <img src="assets/hamburger-icon.svg" alt="abrir menú" />
+        </button>
+        <ul class="menu">
+          <button class="close-menu" aria-label="Cerrar menú">
+            <img src="assets/close-icon.svg" alt="cerrar menú" />
+          </button>
+          <li><a href="#principal" class="selected">Inicio</a></li>
+          <li><a href="#productos">Populares</a></li>
+          <li><a href="#sucursales">Sucursales</a></li>
+          <li><a href="#about">Contacto</a></li>
+        </ul>
       </nav>
       <div class="text__ini">
         <h1>TERROR MUSIC</h1>
