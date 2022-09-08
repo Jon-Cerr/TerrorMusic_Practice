@@ -33,7 +33,7 @@ const observer = new IntersectionObserver(
       }
     });
   },
-  { rootMargin: "-70% 0px -30% 0px" }
+  { rootMargin: "-60% 0px -40% 0px" }
 );
 
 const menuLinks = document.querySelectorAll(`.menu a[href^="#"]`);
@@ -47,17 +47,4 @@ menuLinks.forEach((menuLink) => {
   if (target) {
     observer.observe(target);
   }
-});
-
-window.sr = ScrollReveal();
-sr.reveal(".guitars", {
-  duration: 3000,
-  origin: "bottom",
-  distance: "-100px",
-});
-
-sr.reveal(".sucursales", {
-  duration: 3000,
-  origin: "left",
-  distance: "-500px",
 });
