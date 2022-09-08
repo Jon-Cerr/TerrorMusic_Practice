@@ -48,3 +48,16 @@ menuLinks.forEach((menuLink) => {
     observer.observe(target);
   }
 });
+
+window.sr = ScrollReveal();
+sr.reveal(".guitars", {
+  duration: 3000,
+  origin: "bottom",
+  distance: "-100px",
+});
+
+sr.reveal(".sucursales", {
+  duration: 3000,
+  origin: "left",
+  distance: "-500px",
+});
