@@ -86,12 +86,11 @@
     position: fixed;
     left: 0;
     top: 0;
-    width: 100%;
+    width: 100vw;
     align-items: center;
     background-color: rgb(29, 112, 108);
     height: 100%;
     overflow-y: auto;
-
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s;
